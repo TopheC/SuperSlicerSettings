@@ -1,4 +1,4 @@
-;20220508V1.1
+;20220522V1.2
 G4 ; wait for buffer to clear
 G92 E0; set extruder value back to 0
 G1 E-2 F700; Retract a little. 700mm/min
