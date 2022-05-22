@@ -1,7 +1,7 @@
 ;20220522V1.2
 ;G4 ; Dwell, wait for buffer to clear
 G92 E0; set extruder value back to 0
-G1 E-2 F700; Retract a little. 700mm/min
+G1 E-3 F700; Retract a little. 700mm/min
 
 {if max_layer_z < max_print_height}G1 Z{z_offset+min(max_layer_z+2, max_print_height)} F600 ; Move print head up{endif}
 G1 X5 Y{print_bed_max[1]*0.8} F{travel_speed*60} ; present print
