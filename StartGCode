@@ -1,18 +1,27 @@
+; Init
 G90 ; use absolute coordinates
 M83 ; extruder relative mode
+
+; Temp Up
 M104 S190 ; set temporary nozzle temp to prevent oozing during homing and auto bed leveling
 M140 S[first_layer_bed_temperature] ; set final bed temp
 G4 S10 ; allow partial nozzle warmup
+
+; Homing
 G28 ; home all axis
-G1 Z50 F240
+G1 Z10 F1000 ; Move head up
+G1 X5 Y20 F3600 ; Start 0 position
+G91 ; use relative positioning for the XYZ axes
+
+; Prime the nozzle
 G1 X5 Y10 F5000 ; Draw the first line
 M104 S{first_layer_temperature[initial_extruder]+extruder_temperature_offset[initial_extruder]} ; set final nozzle temp
 M190 S[first_layer_bed_temperature] ; wait for bed temp to stabilize
 M109 S{first_layer_temperature[initial_extruder]+extruder_temperature_offset[initial_extruder]} ; wait for nozzle temp to stabilize
 G1 Z0.28 F240 ; Move to side a little
-G92 E0
+G92 E0 ; set the current filament position to E=0
 G1 Y140 E10 F1500 ; prime the nozzle
 G1 X5.2 F5000 ; Draw the second line
-G92 E0
+G92 E0 ; set the current filament position to E=0
 G1 Y10 E10 F1200 ; prime the nozzle
-G92 E0
+G92 E0 ; set the current filament position to E=0
