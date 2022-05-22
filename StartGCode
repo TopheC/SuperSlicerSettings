@@ -6,7 +6,8 @@ M83 ; extruder relative mode
 ; Temp Up
 M104 S{first_layer_temperature[initial_extruder]+extruder_temperature_offset[initial_extruder]-20} ; set initial nozzle temp to prevent oozing during homing and auto bed leveling
 M140 S[first_layer_bed_temperature] ; set final bed temp
-G4 S10 ; allow partial nozzle warmup
+G4 S5 ; pause command queue, allow partial nozzle warmup 5s
+G1 E-6 F1400; Retract for 6mm. 1400mm/min.
 
 ; Homing
 G28 ; home all axis
