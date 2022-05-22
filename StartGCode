@@ -13,6 +13,7 @@ G4 S10 ; allow partial nozzle warmup
 G28 ; home all axis
 G1 Z10 F1000 ; Move head up 10mm
 G1 X5 Y20 F3600 ; Start 0 position
+M420 S1 ; Restore Mesh Levelling N°1 store in EEPROM
 ;G91 ; use relative positioning for the XYZ axes
 
 ; Prime the nozzle
