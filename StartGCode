@@ -9,7 +9,7 @@ G4 S10 ; allow partial nozzle warmup
 
 ; Homing
 G28 ; home all axis
-G1 Z10 F1000 ; Move head up
+G1 Z10 F1000 ; Move head up 10mm
 G1 X5 Y20 F3600 ; Start 0 position
 G91 ; use relative positioning for the XYZ axes
 
